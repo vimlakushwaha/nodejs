@@ -1,6 +1,12 @@
 const express = require('express');//import module express
 const path = require('path');//import module path; by using this module we send html file to clint side
 const app = express();
+
+
+
+//middle ware
+
+app.use(express.static)
 app.get('/',(req,res)=>{
        res.sendFile(path.join(__dirname, "home.html"));
 })
