@@ -29,7 +29,21 @@ const server = http.createServer((req,res)=>{
 
 
 
-    if((req.url === '/login') && req.method === 'POST')
+    if((req.url === '/login') && req.method === 'POST'){
+        //console.log('hello');
+        const body = [];
+        req.on('data',(data)=>{
+            body.push(data);
+
+        })
+        req.on('end',()=>{
+            //console.log(body);
+            const reqbody = Buffer.concat(body).toString();
+            console.log(reqbody);
+            fs.writeFileSync('data.txt',reqbody);
+        })
+
+    }
 
 
 
