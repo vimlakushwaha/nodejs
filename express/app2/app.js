@@ -6,18 +6,27 @@ const app = express();
 
 //middle ware
 
-app.use(express.static)
+app.use(express.static(path.join(__dirname,'public')));
+
+//route
+/*
+
+// as we declared entry point as index.html .. we do not require this routing from now
 app.get('/',(req,res)=>{
-       res.sendFile(path.join(__dirname, "home.html"));
-})
+       res.sendFile(path.join(__dirname, "index.html"));
+})*/
 
 
 app.get('/contact',(req,res)=>{
-    res.sendFile(path.join(__dirname, "contact.html"));
+    res.sendFile(path.join(__dirname, "public/contact.html"));
 })
 
 app.get('/service',(req,res)=>{
-    res.sendFile(path.join(__dirname, "service.html"));
+    res.sendFile(path.join(__dirname, "public/service.html"));
+})
+
+app.get('/login',(req,res)=>{
+    res.sendFile(path.join(__dirname, "public/login.html"));
 })
 
 app.listen(3000);
