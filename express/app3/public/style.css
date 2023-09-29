@@ -1,0 +1,12 @@
+
+ h1{
+    color:blueviolet;
+}
+ul{
+    display: flex;
+}
+li{
+    margin: 20px;
+    list-style: none;
+}
+    
